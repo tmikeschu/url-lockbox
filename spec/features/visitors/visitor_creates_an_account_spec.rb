@@ -77,8 +77,10 @@ RSpec.feature "Visitor creates an account" do
           fill_in "user_password_confirmation", with: "password"
           click_on "Sign Up"
 
+          message = page.find("#user_email").native.attribute('validationMessage')
+
           expect(current_path).to eq new_user_path
-          expect(page).to have_css("#user_email[required]")
+          expect(message).to eq "Please fill out this field."
         end
       end
 
@@ -88,8 +90,10 @@ RSpec.feature "Visitor creates an account" do
           fill_in "user_password_confirmation", with: "password"
           click_on "Sign Up"
 
+          message = page.find("#user_password").native.attribute('validationMessage')
+
           expect(current_path).to eq new_user_path
-          expect(page).to have_css("#user_password[required]")
+          expect(message).to eq "Please fill out this field."
         end
       end
 
@@ -99,8 +103,10 @@ RSpec.feature "Visitor creates an account" do
           fill_in "user_password", with: "password"
           click_on "Sign Up"
 
+          message = page.find("#user_password_confirmation").native.attribute('validationMessage')
+
           expect(current_path).to eq new_user_path
-          expect(page).to have_css("#user_password_confirmation[required]")
+          expect(message).to eq "Please fill out this field."
         end
       end
 
