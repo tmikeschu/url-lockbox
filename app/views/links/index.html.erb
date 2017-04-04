@@ -1,29 +1,20 @@
-<% if current_user %>
-  <%= link_to "Sign Out", logout_path, method: "DELETE" %>
-<% end %>
+<div class="links">
+  <header>
+    <h1>URL Lockbox</h1>
 
-<section class="create-link">
-  <h3>Add a Link</h3>
-  <%= form_for @link do |f| %>
-    <%= f.label :url %>
-    <%= f.url_field :url, required: true %>
+    <% if current_user %>
+      <%= link_to "Sign Out", logout_path, method: "DELETE" %>
+    <% end %>
+  </header>
 
-    <%= f.label :title %>
-    <%= f.text_field :title, required: true %>
+  <section class="create-link">
+    <%= render partial: "form", locals: { type: "create" } %>
+  </section>
 
-    <%= f.submit "Lock It Up" %>
-  <% end %>
-</section>
-
-<section class="lockbox">
   <h3>Lockbox</h3>
-  <% @links.each do |link| %>
-    <article id="link<%= link.id%>">
-      <h4><%= link.title %></h4>
-      <%= link_to link.url, link.url %>
-      <p>Read? <%= link.read %></p>
-      <%= button_to "Mark as Read", link_path(link), method: 'patch' %>
-      <%= button_to "Edit", edit_link_path(link), method: 'get' %>
-    </article>
-  <% end %>
-</section>
+  <section class="lockbox">
+    <% @links.each do |link| %>
+      <%= render partial: 'link_card', locals: { link: link } %>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,8 @@
+<article id="link<%= link.id %>">
+  <h4><%= link.title %></h4>
+  <%= link_to link.url, link.url %>
+  <p>Read? <%= link.read %></p>
+  <%= button_to "Mark as Read", link_path(link), method: 'patch' %>
+  <%= button_to "Edit", edit_link_path(link), method: 'get' %>
+</article>
+

@@ -1,0 +1,19 @@
+<section class="<%= type %>-link">
+  <% if type == "create" %>
+    <h3>Add a Link</h3>
+  <% else %>
+    <h3>Edit Link</h3>
+  <% end %>
+
+  <%= form_for @link do |f| %>
+    <%= f.url_field :url, placeholder: "URL", required: true %>
+
+    <%= f.text_field :title, placeholder: "Title", required: true %>
+
+    <% if type == "create" %>
+      <%= f.submit "Lock It Up" %>
+    <% else %>
+      <%= f.submit "Update" %>
+    <% end %>
+  <% end %>
+</section>

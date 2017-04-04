@@ -1,0 +1,15 @@
+section.create-link {
+  display: flex;
+  margin: 5px;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  form {
+    width: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    input {
+      margin: 5px 0;
+    }
+  }
+}

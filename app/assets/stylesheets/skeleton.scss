@@ -1,0 +1,30 @@
+body, form, input {
+  font-family: $font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: $red;
+  &:hover, &:focus {
+    color: #000;
+  }
+}
