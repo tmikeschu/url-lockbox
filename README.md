@@ -15,6 +15,8 @@ As a visitor, you can create an account.
 As a user, you can add links, edit them, filter them, and mark them as
 read/undread.
 
+Try it out [here](http://url-lockbox-schutte.herokuapp.com/login).
+
 ## Setup and Development
 
 To get started, clone the repo in your preferred way and:
