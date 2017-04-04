@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -14,9 +13,7 @@ gem 'rails_12factor', group: :production
 gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
-# gem 'bcrypt', '~> 3.1.7'
-
-# gem 'unicorn'
+gem 'bcrypt', '~> 3.1.7'
 
 # gem 'capistrano-rails', group: :development
 group :development do
@@ -24,7 +21,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
@@ -36,4 +32,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'faker'
 end
