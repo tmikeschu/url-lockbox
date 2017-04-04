@@ -2,7 +2,7 @@
   <%= link_to "Sign Out", logout_path, method: "DELETE" %>
 <% end %>
 
-<section class="link-form">
+<section class="create-link">
   <h3>Add a Link</h3>
   <%= form_for @link do |f| %>
     <%= f.label :url %>
@@ -23,6 +23,7 @@
       <%= link_to link.url, link.url %>
       <p>Read? <%= link.read %></p>
       <%= button_to "Mark as Read", link_path(link), method: 'patch' %>
+      <%= button_to "Edit", edit_link_path(link), method: 'get' %>
     </article>
   <% end %>
 </section>
