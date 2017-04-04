@@ -29,8 +29,10 @@ RSpec.feature "User authentication" do
           fill_in "password", with: "password"
           click_on "Log In"
 
+          message = page.find("#email").native.attribute('validationMessage')
+
           expect(current_path).to eq login_path
-          expect(page).to have_css("#email[required]")
+          expect(message).to eq "Please fill out this field."
         end
       end
 
@@ -39,8 +41,10 @@ RSpec.feature "User authentication" do
           fill_in "email", with: user.email
           click_on "Log In"
 
+          message = page.find("#password").native.attribute('validationMessage')
+
           expect(current_path).to eq login_path
-          expect(page).to have_css("#password[required]")
+          expect(message).to eq "Please fill out this field."
         end
       end
     end
