@@ -7,6 +7,7 @@ class LinksManager {
     $("input[value='Lock It Up']").on("click", this.lockItUp.bind(this))
     $("body").on("click", "input[value='Mark as Read']", this.markAsRead.bind(this))
     $("body").on("click", "input[value='Mark as Unread']", this.markAsUnread.bind(this))
+    $("#link-filter").on("keyup", this.textFilter.bind(this))
   }
 
   lockItUp(event) {
@@ -80,6 +81,20 @@ class LinksManager {
 
   displayFailure(failureData){
     console.log("FAILED attempt to update Link: " + failureData.responseText);
+  }
+
+  textFilter(event) {
+		const query = $("#link-filter").val().toLowerCase()
+		
+		$(".lockbox article").hide()
+
+		const matches = $(".lockbox article").filter(article => {
+			const title = $(".lockbox article")[article].querySelector("h4").innerText.toLowerCase()
+			const url = $(".lockbox article")[article].querySelector("a").innerText.toLowerCase()
+			return title.includes(query) || url.includes(query)
+		})
+
+		matches.show()
   }
 }
 
