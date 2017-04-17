@@ -9,9 +9,13 @@
     padding: 10px;
     width: 200px; 
     margin: 10px;
+    word-wrap: break-word;
     h4, p, button { margin: 10px 0 }
     a {
       font-size: 12px;
+    }
+    &.read {
+      opacity: .5;
     }
   }
 }
