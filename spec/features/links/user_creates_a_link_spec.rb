@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User creates a link" do
-  context "As an authenticated user" do
+  context "As an authenticated user", js: true do
     let!(:user) { create(:user) }
 
     before do
@@ -19,13 +19,14 @@ RSpec.feature "User creates a link" do
     end
 
     describe "when I submit a link" do
-      it "a link gets added to the database" do
+      it "a link gets added to the database", js: true do
         expect(Link.count).to eq 0
 
         fill_in "link_url", with: "http://turing.io"        
         fill_in "link_title", with: "Turing Homepage"        
         click_on "Lock It Up"
 
+        wait_for_ajax
         expect(Link.count).to eq 1
       end
 
@@ -45,6 +46,22 @@ RSpec.feature "User creates a link" do
           expect(page).to have_button "Mark as Read"
         end
       end
+
+      it "and the page doesn't reload" do
+        page.driver.browser.execute_script %Q{
+          window.pageMessage = "still here!"
+        }
+
+        fill_in "link_url", with: "http://turing.io"        
+        fill_in "link_title", with: "Turing Homepage"        
+        click_on "Lock It Up"
+        
+        message = page.driver.browser.execute_script %Q{
+          return window.pageMessage
+        }
+
+        expect(message).to eq "still here!"
+      end
     end
 
     context "when I submit an invalid", js: true do
@@ -60,6 +77,7 @@ RSpec.feature "User creates a link" do
 
           expect(Link.count).to eq 0
           expect(message).to eq "Please enter a URL."
+          expect(page).to have_content "Please enter a URL."
           expect(current_path).to eq links_path
         end
       end
