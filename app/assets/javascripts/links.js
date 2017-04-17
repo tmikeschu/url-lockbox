@@ -9,6 +9,7 @@ class LinksManager {
     $("body").on("click", "input[value='Mark as Unread']", this.markAsUnread.bind(this))
     $("#link-filter").on("keyup", this.textFilter.bind(this))
     $("#show-read").on("click", this.showRead.bind(this))
+    $("#show-unread").on("click", this.showUnread.bind(this))
   }
 
   lockItUp(event) {
@@ -102,6 +103,12 @@ class LinksManager {
     const $articles = $(".lockbox article")
     $articles.hide()
     $articles.filter(".read").show()
+  }
+
+  showUnread(event) {
+    const $articles = $(".lockbox article")
+    $articles.show()
+    $articles.filter(".read").hide()
   }
 }
 
