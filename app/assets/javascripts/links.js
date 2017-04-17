@@ -10,7 +10,32 @@ class LinksManager {
     $("#link-filter").on("keyup", this.textFilter.bind(this))
     $("#show-read").on("click", this.showRead.bind(this))
     $("#show-unread").on("click", this.showUnread.bind(this))
+		this.checkForHotties()
   }
+
+	checkForHotties() {
+		$.ajax({
+      url: "https://hotlinks-schutte.herokuapp.com/api/v1/hottest_links",
+			method: "GET"
+		})
+		.done(this.updateHotties)
+		.fail(error => console.error(error))
+	}
+
+	updateHotties(response) {
+		$(".hot, .top").remove()
+		$(".lockbox article")
+			.find(`a:contains(${response[0].url})`)
+			.parents("article")
+			.prepend("<p class='top'>top link</p>")
+
+		response.forEach(link => {
+      $(".lockbox article")
+				.find(`a:contains(${link.url})`)
+				.parents("article")
+				.prepend("<p class='hot'>hot</p>")
+    })
+	}
 
   lockItUp(event) {
     event.preventDefault()
@@ -74,6 +99,7 @@ class LinksManager {
   }
 
   updateLinkStatus(link) {
+		this.checkForHotties()
 		link.read && this.postHotlinks(link.url)
     const buttonText = link.read ? "Mark as Unread" : "Mark as Read"
     const $linkCard = $(`#link${link.id}`)
