@@ -69,16 +69,28 @@ class LinksManager {
       url: "/api/v1/links/" + linkId,
       data: link,
     })
-    .done(this.updateLinkStatus)
+    .done(this.updateLinkStatus.bind(this))
     .fail(this.displayFailure);
   }
 
   updateLinkStatus(link) {
+		link.read && this.postHotlinks(link.url)
     const buttonText = link.read ? "Mark as Unread" : "Mark as Read"
     const $linkCard = $(`#link${link.id}`)
     link.read ? $linkCard.addClass("read") : $linkCard.removeClass("read")
     $linkCard.find('p').text(`Read? ${link.read}`)
     $linkCard.find('.read-unread').val(buttonText)
+  }
+
+  postHotlinks(url) {
+		const link = { link: { url: url } }
+    $.ajax({
+      url: "https://hotlinks-schutte.herokuapp.com/api/v1/links",
+			method: "POST",
+			data: link
+    })
+    .done(response => console.log(response))
+    .fail(error => console.log(error))
   }
 
   displayFailure(failureData){
