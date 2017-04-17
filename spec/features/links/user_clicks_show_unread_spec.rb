@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Show Read button" do
+RSpec.feature "Show Unread button" do
   context "As an authenticated user on the index page" do
     let(:user) { create(:user) }
 
@@ -12,14 +12,17 @@ RSpec.feature "Show Read button" do
       visit links_path
     end
 
-    describe "when I click the Show Read button", js: true do
-      it "only read links are shown" do
-        click_on "Show Read"
+    describe "when I click the Show Unread button", js: true do
+      it "only unread links are shown" do
+        click_on "Show Unread"
 				
-				page_matches = page.all(".lockbox article", visible: true)
-				db_matches = user.links.all.find_all { |link| link.read }	
-				expect(page_matches.count).to eq db_matches.count
+        wait_for_ajax
+				user.links.all.find_all { |link| link.read }.each do |link|
+          expect(page).to_not have_content link.title
+          expect(page).to_not have_link link.url
+        end
       end
     end
   end
 end
+
