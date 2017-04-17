@@ -1,0 +1,14 @@
+.filters {
+  background-color: $green;
+  display: flex;
+  width: 98%;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 5px;
+  h3 {
+    margin-right: 0 10px
+  }
+  input {
+    margin: 0 10px
+  }
+}
