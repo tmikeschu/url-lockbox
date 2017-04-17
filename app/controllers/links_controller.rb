@@ -47,7 +47,7 @@ class LinksController < ApplicationController
     end
 
     def set_links
-      @links = current_user.links.reload
+      @links = current_user.links_by_updated_at.reload
     end
 
     def set_link
