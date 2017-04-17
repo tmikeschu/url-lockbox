@@ -11,6 +11,11 @@
     <%= render partial: "form", locals: { type: "create" } %>
   </section>
 
+  <section class="filters">
+    <h3>Filter</h3>
+    <input type="text" id="link-filter" placeholder="Filter by URL or title"/>
+  </section>
+
   <h3>Lockbox</h3>
   <section class="lockbox">
     <% @links.each do |link| %>

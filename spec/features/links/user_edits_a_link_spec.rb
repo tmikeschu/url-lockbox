@@ -41,9 +41,8 @@ RSpec.feature "User edits a link" do
           end
 
           it "and the link's information should be updated" do
-            user.links.reload
-            expect(user.links.first.title).to eq "New Title"
-            expect(user.links.first.url).to eq "http://turing.io/new"
+            link = user.links.find_by_title("New Title")
+            expect(link.url).to eq "http://turing.io/new"
             expect(page).to have_content "New Title"
             expect(page).to have_content "http://turing.io/new"
           end
