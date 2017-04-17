@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Marking links read and unread" do
-  context "As an authenticated user on the index page" do
+  context "As an authenticated user on the index page", js: true do
     let(:user) { create(:user) }
 
     before do
@@ -22,7 +22,7 @@ RSpec.feature "Marking links read and unread" do
     end
 
     describe "If I click Mark as Read" do
-      it "the card says Read? true", js: true do
+      it "the card says Read? true" do
         within "#link#{user.links.first.id}" do
           expect(page).to have_content "Read? false"
           expect(user.links.first.read).to be false
@@ -32,6 +32,15 @@ RSpec.feature "Marking links read and unread" do
           expect(page).to have_content "Read? true"
           expect(user.links.first.read).to be true
         end
+      end
+
+      it "and it has a CSS class of 'read'" do
+        within "#link#{user.links.first.id}" do
+          click_on "Mark as Read"
+        end
+
+        card = page.find("#link#{user.links.first.id}")
+        expect(card[:class]).to include "read"
       end
     end
 
@@ -46,7 +55,7 @@ RSpec.feature "Marking links read and unread" do
     end
 
     describe "If I click Mark as Unread" do
-      it "the card says Read? false", js: true do
+      it "the card says Read? false" do
         within "#link#{user.links.last.id}" do
           expect(page).to have_content "Read? true"
           expect(user.links.last.read).to be true
@@ -56,6 +65,15 @@ RSpec.feature "Marking links read and unread" do
           expect(page).to have_content "Read? false"
           expect(user.links.last.read).to be false
         end
+      end
+    
+      it "and it does not have a CSS class of 'read'" do
+        within "#link#{user.links.last.id}" do
+          click_on "Mark as Unread"
+        end
+
+        card = page.find("#link#{user.links.last.id}")
+        expect(card[:class]).to_not include "read"
       end
     end
   end

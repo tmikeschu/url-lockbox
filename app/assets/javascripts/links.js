@@ -72,8 +72,10 @@ class LinksManager {
 
   updateLinkStatus(link) {
     const buttonText = link.read ? "Mark as Unread" : "Mark as Read"
-    $(`#link${link.id}`).find('p').text(`Read? ${link.read}`)
-    $(`#link${link.id}`).find('.read-unread').val(buttonText)
+    const $linkCard = $(`#link${link.id}`)
+    link.read ? $linkCard.addClass("read") : $linkCard.removeClass("read")
+    $linkCard.find('p').text(`Read? ${link.read}`)
+    $linkCard.find('.read-unread').val(buttonText)
   }
 
   displayFailure(failureData){

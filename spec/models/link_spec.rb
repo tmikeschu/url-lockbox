@@ -8,6 +8,7 @@ RSpec.describe Link do
   describe "Validations" do
     it { should validate_presence_of(:url) }
     it { should validate_presence_of(:title) }
+    it { should validate_inclusion_of(:read).in_array([true, false]) }
   end
 
   context "Defaults" do
