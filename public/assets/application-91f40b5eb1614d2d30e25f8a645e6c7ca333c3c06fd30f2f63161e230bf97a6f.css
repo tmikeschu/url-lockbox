@@ -1,0 +1,252 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Space+Mono");
+/* line 6, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 16, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 19, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 25, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 29, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+/* line 34, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 38, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+body, form, input {
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+/* line 5, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Mono", serif;
+}
+
+/* line 9, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+h1 {
+  font-size: 3em;
+}
+
+/* line 13, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+h2 {
+  font-size: 2.5em;
+}
+
+/* line 17, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+h3 {
+  font-size: 2em;
+}
+
+/* line 20, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+h4 {
+  font-size: 1.5em;
+}
+
+/* line 24, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+a {
+  text-decoration: none;
+  color: #CE4D45;
+}
+/* line 27, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/skeleton.scss */
+a:hover, a:focus {
+  color: #000;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_header.scss */
+.links {
+  background: #FFD265;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+}
+/* line 7, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_header.scss */
+.links header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 5px;
+}
+/* line 14, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_header.scss */
+.links > h3 {
+  margin: 5px;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_create_link.scss */
+section.create-link {
+  display: flex;
+  margin: 5px;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+/* line 6, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_create_link.scss */
+section.create-link form {
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+/* line 11, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_create_link.scss */
+section.create-link form input {
+  margin: 5px 0;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_link_card.scss */
+.lockbox {
+  display: flex;
+  width: 90%;
+  margin: 10px;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+/* line 7, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_link_card.scss */
+.lockbox article {
+  border: 2px solid #0A7B83;
+  padding: 10px;
+  width: 200px;
+  margin: 10px;
+  word-wrap: break-word;
+}
+/* line 13, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_link_card.scss */
+.lockbox article h4, .lockbox article p, .lockbox article button {
+  margin: 10px 0;
+}
+/* line 14, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_link_card.scss */
+.lockbox article a {
+  font-size: 12px;
+}
+/* line 17, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_link_card.scss */
+.lockbox article.read {
+  opacity: .5;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_filter.scss */
+.filters {
+  background-color: #2AA876;
+  display: flex;
+  width: 98%;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 5px;
+}
+/* line 8, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_filter.scss */
+.filters h3 {
+  margin-right: 0 10px;
+}
+/* line 11, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_filter.scss */
+.filters input {
+  margin: 0 10px;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_login.scss */
+.login {
+  padding: 10px;
+  background: #FFD265;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+}
+/* line 8, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_login.scss */
+.login h1, .login form, .login p {
+  margin: 10px 0;
+}
+/* line 12, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_login.scss */
+.login form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 16, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_login.scss */
+.login form input {
+  margin: 10px 0;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_new_user.scss */
+.new-user {
+  padding: 10px;
+  background: #FFD265;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+}
+/* line 8, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_new_user.scss */
+.new-user h1, .new-user form, .new-user p {
+  margin: 10px 0;
+}
+/* line 12, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_new_user.scss */
+.new-user form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 16, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_new_user.scss */
+.new-user form input {
+  margin: 10px 0;
+}
+
+/* line 1, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_edit_link.scss */
+.edit-link {
+  padding: 10px;
+  background: #FFD265;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+}
+/* line 8, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_edit_link.scss */
+.edit-link h1, .edit-link form, .edit-link p {
+  margin: 10px 0;
+}
+/* line 12, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_edit_link.scss */
+.edit-link form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 16, /Users/tmikeschutte/Turing/4module/final_assessment/url-lockbox/app/assets/stylesheets/sections/_edit_link.scss */
+.edit-link form input {
+  margin: 10px 0;
+}
