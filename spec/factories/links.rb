@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :link do
     url { Faker::Internet.url }
     title { Faker::HarryPotter.location }

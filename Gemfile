@@ -29,7 +29,7 @@ group :development, :test do
   gem 'spring'
   gem 'database_cleaner'
   gem 'better_errors'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
   gem 'faker'
